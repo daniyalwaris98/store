@@ -1,0 +1,36 @@
+{
+  "cli": {
+    "version": ">= 18.13.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildTemplate": {
+          "googleServicesFile": "./google-services.json"
+        }
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildTemplate": {
+          "googleServicesFile": "./google-services.json"
+        }
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "buildTemplate": {
+          "googleServicesFile": "./google-services.json"
+        }
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

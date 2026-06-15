@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "../styles/customization.css";
+@plugin "tailwindcss-animate";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-foreground: var(--accent-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--background);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted);
+  --color-card: var(--card-bg);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--primary);
+  --color-popover: var(--background);
+  --color-popover-foreground: var(--foreground);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+  --font-sans: var(--font-family);
+
+  /* Custom accordion animations */
+  --animate-accordion-down: accordion-down 300ms ease-out;
+  --animate-accordion-up: accordion-up 300ms ease-out;
+  --animate-duration: 300ms;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family);
+}
+
+ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+li {
+  display: list-item;
+}
+
+footer li {
+  list-style: none;
+}
+
+.markdown-editor-container ul,
+.markdown-editor-container ol,
+.markdown-editor-container li {
+  list-style: revert !important;
+  list-style-position: inside !important;
+}
+
+.markdown-editor-container li {
+  display: list-item;
+}
+
+/* MDXEditor popup container should be relative, not fixed */
+.mdxeditor-popup-container {
+  position: absolute !important;
+}
+
+.container {
+  max-width: 1150px !important;
+}
+
+@keyframes shrink-x {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* ── TikTok Video Carousel ─────────────────────────────── */
+.tiktok-carousel-container {
+  /* Remove default gap – spacing is handled by padding on each slide */
+  gap: 0;
+}
+
+.tiktok-carousel-slide {
+  /* Mobile: 75% width → side peeks visible */
+  flex: 0 0 75%;
+  min-width: 0;
+  padding-left: 16px;
+}
+
+@media (min-width: 768px) {
+  .tiktok-carousel-slide {
+    /* Desktop: show 3 slides, with 20px gaps between them */
+    flex: 0 0 calc((100% - 40px) / 3);
+    padding-left: 20px;
+  }
+}
