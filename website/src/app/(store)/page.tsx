@@ -1,4 +1,5 @@
 import { HeroCarousel } from "@/components/ui/hero-carousel"
+import { DepartmentSplitHero } from "@/components/features/homepage/department-split-hero"
 import { CollectionSection } from "@/components/features/collection/CollectionSection"
 import CollectionGrid from "@/components/features/collection/collection-grid"
 import { FeaturesSection } from "@/components/features/homepage/features-section"
@@ -12,7 +13,7 @@ export const revalidate = 60
 
 export default function HomePage() {
   return (
-    <div className="w-full mx-auto flex flex-col">
+    <div className="w-full mx-auto flex flex-col gap-6">
       {/* Hero Slider */}
       <section>
         <HeroCarousel
@@ -29,6 +30,9 @@ export default function HomePage() {
           autoPlayInterval={5000}
         />
       </section>
+
+      {/* Department Split Hero (Men, Women, Kids Selector) */}
+      <DepartmentSplitHero />
 
       {/* Featured Collection */}
       <CollectionSection slug="featured" title="Our Top Choice" />

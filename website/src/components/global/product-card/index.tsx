@@ -7,6 +7,7 @@ import { useCart } from "@/context/CartContext"
 import { useCurrency } from "@/context/CurrencyContext"
 import { formatCurrency } from "@/lib/utils"
 import { resolveProductPrice } from "@/lib/currency"
+import { Badge } from "@/components/global/badge"
 
 interface Product {
   _id: string
@@ -114,15 +115,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Sticker Overlay */}
         {product.stickerId && product.stickerId.imageUrl && (
-          <div className="absolute top-2 right-2 w-12 h-12">
-            <Image
-              src={product.stickerId.imageUrl}
-              alt=""
-              width={96}
-              height={96}
-              className="w-full h-full object-contain"
-            />
-          </div>
+          <Badge
+            imageUrl={product.stickerId.imageUrl}
+            placement={product.stickerId.placement as any}
+            size={48}
+          />
         )}
 
         {/* Video indicator */}
